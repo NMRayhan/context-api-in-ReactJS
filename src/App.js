@@ -1,18 +1,20 @@
 import './App.css';
 import { createContext, useState } from 'react';
-import Base from './Components/Base/Base';
+import CategoryList from './Components/CategoryList/CategoryList';
+import ProductList from './Components/ProductList/ProductList';
 
-export const categoryContext = createContext()
+export const CategoryContext = createContext()
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [Category, setCategory] = useState("Laptop")
 
   return (
     <div className="App">
-      <categoryContext.Provider value={[count, setCount]} >
-        <h1>Count : {count}</h1>
-        <Base></Base>
-      </categoryContext.Provider>
+      <CategoryContext.Provider value={[Category, setCategory]} >
+        <h2>Select Your Category</h2>
+        <CategoryList></CategoryList>
+        <ProductList></ProductList>
+      </CategoryContext.Provider>
     </div>
   );
 }
